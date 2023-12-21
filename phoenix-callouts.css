@@ -1,0 +1,42 @@
+/* Phoenix Theme addon for old-style admonitions/callouts in Obsidian 1.0+ */
+/* adapted from kepano's snippet at https://gist.github.com/kepano/cde61ac7db1afd3f173a16157c627f93 */
+body {
+  --callout-border-width: 0 0 0 4px;
+  --callout-border-opacity: 1;
+  --callout-radius: 0.2em;
+  --callout-padding: 0;
+  --callout-title-padding: var(--size-4-3) var(--size-4-3); /* top-bottom, left-right */
+  --callout-content-padding: var(--size-4-3) var(--size-4-3); /* top-bottom, left-right */
+}
+
+.callout-content {
+  background-color: var(--background-primary-alt);
+}
+
+/* remove unnecessary margin from certain child elements of callout */
+/* also keeps things more balanced and uniform */
+.callout-content ul,
+.callout-content ol {
+  margin-bottom: 0 !important;
+}
+
+/* remove strange bottom margin due to the span surrounding an img embed */
+.callout-content img {
+  margin-bottom: -8px !important;
+}
+
+/* remove (colored?) space at the bottom of codeblock-type admonitions (not applicable to newer blockquote-type callouts) */
+.callout-content.admonition-content {
+  margin-bottom: 0 !important;
+}
+
+/* not applicable for old-style callouts since this lengthens the colored title bar */
+/* replaced with "inverse" (content padding, below) */
+.markdown-preview-view .callout-title {
+  margin-bottom: 0 !important;
+}
+
+/* associated with above */
+.markdown-preview-view .callout-content {
+  padding-top: var(--size-4-3) !important;
+}
