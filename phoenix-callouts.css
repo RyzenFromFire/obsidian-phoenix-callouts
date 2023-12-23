@@ -7,10 +7,11 @@ body {
   --callout-padding: 0;
   --callout-title-padding: var(--size-4-3) var(--size-4-3); /* top-bottom, left-right */
   --callout-content-padding: var(--size-4-3) var(--size-4-3); /* top-bottom, left-right */
+  --callout-content-background: var(--background-primary-alt);
 }
 
 .callout-content {
-  background-color: var(--background-primary-alt);
+  background-color: var(--callout-content-background);
 }
 
 /* remove unnecessary margin from certain child elements of callout */
@@ -39,4 +40,39 @@ body {
 /* associated with above */
 .markdown-preview-view .callout-content {
   padding-top: var(--size-4-3) !important;
+}
+
+/* fixes to make printing callouts readable on a white background */
+@media print {
+  .callout {
+    /* background-color: color-mix(in srgb, var(--r-meteor), rgba(var(--callout-color)) 40%) */
+    /* background-color: color-mix(in srgb, rgba(var(--callout-color), 0.5), #78787878) */
+    /* background-color: rgb(from var(--callout-color) calc(1 - r) calc(1 - g) calc(1 - b)); */
+    background-color: rgba(var(--callout-color), 0.2);
+  } 
+
+  .callout::before {
+    /* background-color: rgba(var(--callout-color), 0.1); */
+    margin-top: calc(0px - calc(var(--size-normal) + var(--size-4-4) + var(--size-4-3)));
+    /* background-color: var(--background-primary); */
+    background-color: rgba(var(--callout-color), 0.7);
+    /* background-color: var(--r-dark0); */
+    filter: invert(0.5);
+    mix-blend-mode: overlay;
+    display: block;
+    /* width: 100%; */
+    height: calc(var(--size-normal) + var(--size-4-4) + var(--size-4-3));
+    position: relative;
+    top: calc(var(--size-normal) + var(--size-4-4) + var(--size-4-3));
+    /* left: calc(var(--callout-radius) + 0.01em); */
+    border-radius: 0 var(--callout-radius) 0 0;
+    content: "";
+    z-index: -1;
+  }
+
+
+  .callout-content {
+    /* very light version of r-light0 */
+    background-color: #f8f1ea;
+  }
 }
