@@ -42,6 +42,11 @@ body {
   padding-top: var(--size-4-3) !important;
 }
 
+.callout:not(.admonition).drop-shadow,
+.callout-content .callout {
+  box-shadow: 0 .1rem .2rem var(--background-modifier-box-shadow);
+}
+
 /* fixes to make printing callouts readable on a white background */
 @media print {
   .callout {
