@@ -50,14 +50,9 @@ body {
   box-shadow: 0 .1rem .2rem var(--background-modifier-box-shadow);
 }
 
-/* add a little padding to multi-column callouts */
-div[data-callout="multi-column"].callout {
-  padding: 3px;
-}
-
 /* remove margins from inner callouts of multi-column callout */
 /* this prevents "duplication" of the margins/padding */
-div[data-callout="multi-column"].callout > .callout-content {
+div[data-callout="multi-column"].callout > .callout-content > *:is(div,ul,blockquote,p) {
   margin: 0 !important;
 }
 
