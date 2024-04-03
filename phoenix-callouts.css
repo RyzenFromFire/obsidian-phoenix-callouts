@@ -54,6 +54,13 @@ body {
 /* this prevents "duplication" of the margins/padding */
 div[data-callout="multi-column"].callout > .callout-content > *:is(div,ul,blockquote,p) {
   margin: 0 !important;
+  
+}
+
+/* however, small bottom/left margins needed for callouts in callouts */
+div[data-callout="multi-column"].callout > .callout-content > *:is(div,ul,blockquote,p) {
+  margin-bottom: 3px !important;
+  margin-right: 2px !important;
 }
 
 /* fixes to make printing callouts readable on a white background */
