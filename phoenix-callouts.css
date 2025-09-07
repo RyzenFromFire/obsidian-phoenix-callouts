@@ -8,6 +8,9 @@ body {
   --callout-title-padding: var(--size-4-3) var(--size-4-3); /* top-bottom, left-right */
   --callout-content-padding: var(--size-4-3) var(--size-4-3); /* top-bottom, left-right */
   --callout-content-background: var(--background-primary-alt);
+
+  /* remove new embed padding (indent for embedded callouts) */
+  --embed-padding: 0 !important;
 }
 
 .callout-content {
